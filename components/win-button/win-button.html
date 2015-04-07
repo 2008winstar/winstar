@@ -1,0 +1,190 @@
+<template>
+    <link rel="stylesheet" href="../../library/waves/waves.min.css"/>
+    <style>
+        .btn {
+            background-color: white;
+            background-image: none;
+            background-position: 50% 50%;
+            background-size: 100% 100%;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            color: #212121;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-bottom: 0;
+            max-width: 100%;
+            padding: 5px 15px;
+            position: relative;
+            text-align: center;
+            text-transform: uppercase;
+            vertical-align: middle;
+            white-space: nowrap;
+            -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15);
+            -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; }
+        .btn:active, .btn:focus, .btn:hover {
+            color: #212121;
+            outline: 0;
+            text-decoration: none;
+            -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15); }
+        .btn[disabled], fieldset[disabled] .btn {
+            cursor: not-allowed;
+            opacity: 0.5;
+            filter: alpha(opacity=50); }
+        .btn.waves-effect {
+            border: 0;
+            padding: 6px 16px; }
+
+        .btn-block {
+            display: block;
+            white-space: normal;
+            width: 100%; }
+
+        .btn-alt {
+            background-color: #4caf50;
+            color: white; }
+        .btn-alt:active, .btn-alt:focus, .btn-alt:hover {
+            color: white; }
+        .btn-alt[disabled], fieldset[disabled] .btn-alt {
+            background-color: #4caf50; }
+
+        .btn-blue {
+            background-color: #2196f3;
+            color: white; }
+        .btn-blue:active, .btn-blue:focus, .btn-blue:hover {
+            color: white; }
+        .btn-blue[disabled], fieldset[disabled] .btn-blue {
+            background-color: #2196f3; }
+
+        .btn-green {
+            background-color: #4caf50;
+            color: white; }
+        .btn-green:active, .btn-green:focus, .btn-green:hover {
+            color: white; }
+        .btn-green[disabled], fieldset[disabled] .btn-green {
+            background-color: #4caf50; }
+
+        .btn-purple {
+            background-color: #9c27b0;
+            color: white; }
+        .btn-purple:active, .btn-purple:focus, .btn-purple:hover {
+            color: white; }
+        .btn-purple[disabled], fieldset[disabled] .btn-purple {
+            background-color: #9c27b0; }
+
+        .btn-red {
+            background-color: #f44336;
+            color: white; }
+        .btn-red:active, .btn-red:focus, .btn-red:hover {
+            color: white; }
+        .btn-red[disabled], fieldset[disabled] .btn-red {
+            background-color: #f44336; }
+
+        .btn-yellow {
+            background-color: #ffc107;
+            color: white; }
+        .btn-yellow:active, .btn-yellow:focus, .btn-yellow:hover {
+            color: white; }
+        .btn-yellow[disabled], fieldset[disabled] .btn-yellow {
+            background-color: #ffc107; }
+
+        .btn-flat {
+            background-color: transparent;
+            -webkit-box-shadow: none;
+            box-shadow: none; }
+        .btn-flat:active, .btn-flat:focus, .btn-flat:hover {
+            background-color: #e0e0e0;
+            -webkit-box-shadow: none;
+            box-shadow: none; }
+        .btn-flat[disabled], fieldset[disabled] .btn-flat {
+            color: #212121; }
+
+        .btn-flat.btn-alt {
+            color: #4caf50; }
+        .btn-flat.btn-alt:active, .btn-flat.btn-alt:focus, .btn-flat.btn-alt:hover {
+            background-color: #c8e6c9; }
+        .btn-flat.btn-alt[disabled], fieldset[disabled] .btn-flat.btn-alt {
+            color: #4caf50; }
+
+        .btn-flat.btn-blue {
+            color: #2196f3; }
+        .btn-flat.btn-blue:active, .btn-flat.btn-blue:focus, .btn-flat.btn-blue:hover {
+            background-color: #bbdefb; }
+        .btn-flat.btn-blue[disabled], fieldset[disabled] .btn-flat.btn-blue {
+            color: #2196f3; }
+
+        .btn-flat.btn-green {
+            color: #4caf50; }
+        .btn-flat.btn-green:active, .btn-flat.btn-green:focus, .btn-flat.btn-green:hover {
+            background-color: #c8e6c9; }
+        .btn-flat.btn-green[disabled], fieldset[disabled] .btn-flat.btn-green {
+            color: #4caf50; }
+
+        .btn-flat.btn-purple {
+            color: #9c27b0; }
+        .btn-flat.btn-purple:active, .btn-flat.btn-purple:focus, .btn-flat.btn-purple:hover {
+            background-color: #e1bee7; }
+        .btn-flat.btn-purple[disabled], fieldset[disabled] .btn-flat.btn-purple {
+            color: #9c27b0; }
+
+        .btn-flat.btn-red {
+            color: #f44336; }
+        .btn-flat.btn-red:active, .btn-flat.btn-red:focus, .btn-flat.btn-red:hover {
+            background-color: #ffcdd2; }
+        .btn-flat.btn-red[disabled], fieldset[disabled] .btn-flat.btn-red {
+            color: #f44336; }
+
+        .btn-flat.btn-yellow {
+            color: #ffc107; }
+        .btn-flat.btn-yellow:active, .btn-flat.btn-yellow:focus, .btn-flat.btn-yellow:hover {
+            background-color: #ffecb3; }
+        .btn-flat.btn-yellow[disabled], fieldset[disabled] .btn-flat.btn-yellow {
+            color: #ffc107; }
+
+        .btn-sm {
+            font-size: 12px;
+            line-height: 22px;
+            padding: 0 7px; }
+        .btn-sm.waves-effect {
+            padding: 1px 8px; }
+
+        .btn-text {
+            color: #212121;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            padding: 6px 0; }
+    </style>
+    <button><content></content></button>
+</template>
+<script src="../../library/waves/waves.min.js"></script>
+<script>
+    var currentDocument = document.currentScript.ownerDocument;
+    var temp = currentDocument.querySelector('template');
+    var button = temp.content.querySelector('button');
+    var proto = Object.create(HTMLElement.prototype, {
+        createdCallback: {
+            value: function () {
+                var root = this.createShadowRoot();
+                var classes = this.getAttribute('class');
+                button.className = classes;
+                root.appendChild(document.importNode(temp.content, true));
+//                root.className = classes;
+            }
+        }
+    });
+    document.registerElement('win-button', {
+        prototype: proto
+    });
+
+</script>

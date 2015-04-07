@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <template>
+        <style>
+            :host {
+                border: 1px solid red;
+                padding: 10px;
+            }
+        </style>
+        My host element will have a red border!
+    </template>
+    <div id="host"></div>
+    <script>
+        var template = document.querySelector('template');
+        var root = document.querySelector('#host').createShadowRoot();
+        root.appendChild(template.content);
+    </script>
+</body>
+</html>
