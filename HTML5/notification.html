@@ -27,10 +27,35 @@
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('button').addEventListener('click', function () {
                 if (!('Notification' in window)) {
-                    alert('Sorry');
+                    alert('Sorry bro, your browser is not good enough to display notification');
+                    return;
                 }
-            })
-        })
+                /**
+                 * 获取权限，返回值有三种情况
+                 * default：用户处理结果未知，浏览器将视为用户拒绝
+                 * denied：用户拒绝
+                 * granted：用户允许
+                 */
+                Notification.requestPermission(function (permission) {
+                    var config = {
+                        // 通知栏的正文内容
+                        body: 'Thanks for clicking that button. Hope you liked.',
+                        // 通知栏icon URL
+                        icon:'https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_HTML5.png',
+                        // 文本显示方向，auto(自动), ltr、rtl
+                        dir:'auto'
+                        // 其他配置项：
+                        // lang, 通知栏文本所使用语种
+                        // tag, 为通知栏分配一个ID值，便于检索、替换或移除通知栏
+                    };
+                    var notification = new Notification('Here I am!', config);
+
+                    setTimeout(function () {
+                        notification.close();
+                    }, 5000);
+                });
+            });
+        });
     </script>
 </body>
 </html>
