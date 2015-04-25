@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>React Demo</title>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="hello"></div>
+<script type="text/jsx">
+    var CommentBox = React.createClass({
+        render: function () {
+            return (
+                <div>
+                    Hello, World! I am a CommentBox.
+                </div>
+            );
+        }
+    });
+    React.render(
+            <CommentBox />,
+            document.getElementById('hello')
+    );
+</script>
+</body>
+</html>
