@@ -6,6 +6,10 @@
       "jsx": true
     }
   },
+  "env": {
+    "node": true,
+    "browser": true
+  },
   "rules": {
     "no-cond-assign": ["error", "always"],
     "no-console": "warn",
@@ -219,7 +223,7 @@
     "semi-spacing": "error",
     "semi": "error",
     "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": false}],
-    "space-before-blocks": ["error", "never"],
+    "space-before-blocks": ["error", {"functions": "always", "keywords": "never", "classes": "never"}],
     "space-before-function-paren": ["error", {"anonymous": "always", "named": "never"}],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
