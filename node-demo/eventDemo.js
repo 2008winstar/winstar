@@ -20,3 +20,19 @@ em.on('timeout', function (data) {
         process.exit();
     }
 });
+
+let eventEmitter = new EventEmitter();
+
+var connectHandler = function () {
+    console.log('success');
+    eventEmitter.emit('data_received');
+};
+
+eventEmitter.on('connection', connectHandler);
+
+eventEmitter.on('data_received', function () {
+    console.log('done');
+});
+
+eventEmitter.emit('connection');
+console.log('ok');

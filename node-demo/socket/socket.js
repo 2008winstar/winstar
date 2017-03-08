@@ -10,7 +10,7 @@ const fs = require('fs');
 app.listen(80);
 
 function handler(req, res) {
-    fs.readFile(__dirname + '/index.html', function (err, data) {
+    fs.readFile(__dirname + '/index.html', (err, data) => {
         if (err) {
             res.writeHead(500);
             return res.end('Error loading index.html');
