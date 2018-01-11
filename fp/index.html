@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>functional programming demo</title>
+</head>
+<body>
+<div id="products"></div>
+<script>
+    var columbian = {
+        name: 'columbian',
+        basePrice: 5
+    };
+    var frenchRoast = {
+        name: 'french roast',
+        basePrice: 8
+    };
+
+    var decaf = {
+        name: 'decaf',
+        basePrice: 6
+    }
+
+    function printPrice(coffee, size) {
+        if (size === 'small') {
+            var price = coffee.basePrice + 2;
+        } else if (size === 'medium') {
+            var price = coffee.basePrice + 4;
+        } else {
+            var price = coffee.basePrice + 6;
+        }
+
+        var node = document.createElement('li');
+        var label = coffee.name + ' ' + size;
+        var textNode = document.createTextNode(label + ' price: $' + price);
+        node.appendChild(textNode);
+        document.getElementById('products').appendChild(node);
+    }
+
+    printPrice(columbian, 'small');
+    printPrice(columbian, 'medium');
+    printPrice(columbian, 'large');
+    printPrice(frenchRoast, 'small');
+    printPrice(frenchRoast, 'medium');
+    printPrice(frenchRoast, 'large');
+    printPrice(decaf, 'small');
+    printPrice(decaf, 'medium');
+    printPrice(decaf, 'large');
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

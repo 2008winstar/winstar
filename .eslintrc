@@ -230,10 +230,10 @@
     "space-infix-ops": "error",
     "space-unary-ops": ["error", {
       "words": true,
-      "nonwords": false,
+      "nonwords": false/*,
       "overrides": {
         "++": true
-      }
+      }*/
     }],
     "spaced-comment": ["error", "always", {
       "line": {

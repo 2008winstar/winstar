@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <title>File read using system dialogs</title>
+</head>
+
+<body>
+<button id="btn">select file...</button>
+<script type = "text/javascript">
+    const {ipcRenderer} = require('electron');
+
+    document.getElementById('btn').addEventListener('click', function() {
+        ipcRenderer.send('openFile', () => {
+            console.log("Event sent.");
+        });
+    });
+
+
+    ipcRenderer.on('fileData', (event, data) => {
+        document.write(data)
+    });
+</script>
+</body>
+</html>

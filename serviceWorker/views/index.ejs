@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Registration status: <strong id="status"></strong></p>
+    <p>State: <strong id="state"></strong></p>
+    <script>
+        function printState(state) {
+            console.log(state);
+        }
+
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js', {scope: './'}).then(function (registration) {
+                var serviceWorker;
+
+                document.getElementById('status').innerHTML = 'successful';
+                if (registration.installing) {
+                    serviceWorker = registration.installing;
+                    printState('installing');
+                } else if (registration.waiting) {
+                    serviceWorker = registration.waiting;
+                    printState('waiting');
+                } else if (registration.active) {
+                    serviceWorker = registration.active;
+                    printState('active');
+                }
+
+                if (serviceWorker) {
+                    printState(serviceWorker.state);
+                    serviceWorker.addEventListener('statechange', function (e) {
+                        printState(e.target.state);
+                    })
+                }
+            }).catch(function (err) {
+                document.getElementById('status').innerHTML = err;
+            });
+        } else {
+            document.getElementById('status').innerHTML = 'unavailable';
+        }
+    </script>
+</body>
+</html>
