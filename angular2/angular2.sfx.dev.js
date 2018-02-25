@@ -1,6 +1,6 @@
 /**
  * @file file description here
- * @author wendegang (wendegang@baidu.com)
+ * @author winstar
  */
 'use strict';
 
